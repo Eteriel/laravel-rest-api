@@ -10,16 +10,22 @@
 ## Installation
 
 git clone https://github.com/Eteriel/laravel-rest-api.git
+
 composer install
+
 cp .env.example .env
+
 php artisan key:generate
+
 add/rename .env db section 
+
 php artisan migrate:fresh --seed
 
 ## Test
 
-http://oas.test/api/documentation - Api Test
-php artisan list -> available commands - Console Test
+Api Test: http://{yourdomain}/api/documentation
+
+Console Test: php artisan list -> available commands
 
 ## License
 
