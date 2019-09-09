@@ -47,7 +47,7 @@ class removeItemCommand extends Command
             'order_id' => ['required', 'integer', 'exists:orders,id', function ($attribute, $value, $fail) {
                 $order = Order::find($value);
                 if ($order && $order->status != 'created') {
-                    $fail('Order id = ' . $value . ' has ' . $order->status  . ' status, but only created status allowed');
+                    $fail('Order id = ' . $value . ' has «' . $order->status  . '» status, but only «created» status allowed');
                 }}],
             'item_id' => ['required', 'integer', 'exists:items,id']
         ], [

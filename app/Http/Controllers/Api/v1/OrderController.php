@@ -126,7 +126,7 @@ class OrderController extends ApiController
 
                 return response()->json(['status' => 'success', 'message' => 'Order updated'], 202);
             } else {
-                $order->items()->attach($item)->touch();
+                $order->items()->attach($item);
 
                 return response()->json(['status' => 'success', 'message' => 'Item added'], 203);
             }
@@ -371,7 +371,7 @@ class OrderController extends ApiController
 
     public function showOrder($order)
     {
-            return OrderResource::make($order);
+        return OrderResource::make($order);
     }
 
     /**
@@ -474,7 +474,7 @@ class OrderController extends ApiController
      *                 @OA\Property(
      *                     property="message",
      *                     type="string",
-     *                     example="Status changed to «transferred to the courier»",
+     *                     example="Status changed to «transferred»",
      *                 )
      *             )
      *         )
@@ -510,7 +510,7 @@ class OrderController extends ApiController
     {
         if ($order->status == 'processed') {
             $order->update(['status' => 'transferred']);
-            return response()->json(['status' => 'success', 'message' => 'Status changed to «transferred to the courier»'], 202);
+            return response()->json(['status' => 'success', 'message' => 'Status changed to «transferred»'], 202);
         } else {
 
             return response()->json(['status' => 'error', 'message' => 'Status cannot be changed'], 403);
