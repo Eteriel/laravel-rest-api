@@ -79,5 +79,6 @@ class addItemCommand extends Command
             $this->info('Item with id = <fg=red><bg=black>' . $this->argument('item_id') . '</></> added to order id = <fg=red><bg=black>' . $order->id . '</></>');
         }
 
+        return true;
     }
 }
